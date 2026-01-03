@@ -16,16 +16,18 @@
         <div class="nav-links">
             <a href="#hero">Home</a>
             <a href="#retro">Skills</a>
+            <a href="#traits">Traits</a>
             <a href="#experience">Experience</a>
             <a href="#certs">Certifications</a>
             <a href="#contact">Connect</a>
         </div>
     </nav>
 
-    <!-- SECTION 1: Hero with Particles -->
+    <!-- SECTION 1: Hero with Particles & Mini Map -->
     <section id="hero" class="hero">
         <div class="hero-content">
-            <div class="hero-greeting">Good afternoon</div>
+            <!-- Changed greeting to "Good day" with multilingual morphing -->
+            <div class="hero-greeting" id="greeting">Good day</div>
             <h1 class="hero-title">
                 <span class="glitch" data-text="IWINOSA OZIGBO">IWINOSA OZIGBO</span>
             </h1>
@@ -55,6 +57,13 @@
                 </svg>
             </a>
         </div>
+        
+        <!-- Added miniature pixelated world map -->
+        <div class="mini-map-container">
+            <canvas id="miniMap"></canvas>
+            <div class="map-label">📍 Based in Lagos, Nigeria</div>
+        </div>
+
         <div class="scroll-indicator">
             <div class="scroll-mouse"></div>
         </div>
@@ -68,66 +77,163 @@
                 <div class="pixel-lives">❤❤❤ LEVEL: EXPERT</div>
             </div>
             
+            <!-- Added cheat code hint -->
+            <div class="cheat-hint">
+                <span class="hint-text">💡 Psst... Try the classic cheat code! ⬆⬆⬇⬇</span>
+            </div>
+
             <div class="game-screen">
                 <div class="game-ui">
                     <div class="hp-bar">
-                        <div class="hp-label">SKILLS</div>
+                        <div class="hp-label">SKILLS POWER</div>
                         <div class="hp-fill"></div>
                     </div>
                 </div>
 
+                <!-- Enhanced projects grid with more projects and better styling -->
                 <div class="projects-grid">
                     <!-- Project 1: Proxy Platform -->
-                    <div class="pixel-card project-card">
-                        <div class="pixel-card-header">🎮 QUEST 1: PROXY RENTAL PLATFORM</div>
+                    <div class="pixel-card project-card quest-gold">
+                        <div class="pixel-card-header">
+                            <span class="quest-badge">LEGENDARY</span>
+                            🎮 QUEST 1: PROXY RENTAL EMPIRE
+                        </div>
                         <div class="pixel-card-body">
-                            <p class="pixel-text">Designed & deployed scalable proxy/IP rental system with automated payments, sticky/rotating sessions, and failover redundancy.</p>
+                            <p class="pixel-text">Built & scaled a full-stack proxy/IP rental platform with automated Stripe payments, real-time session monitoring, sticky/rotating IPs, and multi-region failover.</p>
                             <div class="pixel-stats">
                                 <span>👥 1,000+ Users</span>
-                                <span>⚡ Real-time Monitoring</span>
-                                <span>🔐 API Validation</span>
+                                <span>⚡ 99.9% Uptime</span>
+                                <span>🔐 API Security</span>
+                                <span>💳 Auto Billing</span>
                             </div>
                             <div class="pixel-tech">
                                 <span class="tech-badge">Python</span>
-                                <span class="tech-badge">Stripe</span>
+                                <span class="tech-badge">Stripe API</span>
                                 <span class="tech-badge">REST APIs</span>
+                                <span class="tech-badge">Redis</span>
                             </div>
+                            <div class="quest-reward">⭐ 1000 XP</div>
                         </div>
                     </div>
 
                     <!-- Project 2: Support Automation -->
-                    <div class="pixel-card project-card">
-                        <div class="pixel-card-header">🎮 QUEST 2: SUPPORT AUTOMATION</div>
+                    <div class="pixel-card project-card quest-epic">
+                        <div class="pixel-card-header">
+                            <span class="quest-badge">EPIC</span>
+                            🎮 QUEST 2: SUPPORT AUTOMATION SYSTEM
+                        </div>
                         <div class="pixel-card-body">
-                            <p class="pixel-text">End-to-end support automation with analytics dashboards, cutting resolution time by 25% and boosting CSAT across team.</p>
+                            <p class="pixel-text">Designed end-to-end support automation with smart ticket routing, analytics dashboards, and predictive escalation. Cut resolution time 25%, errors 40%, repeats 22%.</p>
                             <div class="pixel-stats">
                                 <span>📊 25% Faster</span>
                                 <span>🎯 40% Less Errors</span>
                                 <span>📈 22% Fewer Repeats</span>
+                                <span>🤖 AI Routing</span>
                             </div>
                             <div class="pixel-tech">
                                 <span class="tech-badge">Zendesk</span>
                                 <span class="tech-badge">Automation</span>
                                 <span class="tech-badge">Analytics</span>
+                                <span class="tech-badge">Python</span>
                             </div>
+                            <div class="quest-reward">⭐ 750 XP</div>
                         </div>
                     </div>
 
                     <!-- Project 3: Construction Digitization -->
-                    <div class="pixel-card project-card">
-                        <div class="pixel-card-header">🎮 QUEST 3: CONSTRUCTION DIGITIZATION</div>
+                    <div class="pixel-card project-card quest-rare">
+                        <div class="pixel-card-header">
+                            <span class="quest-badge">RARE</span>
+                            🎮 QUEST 3: CONSTRUCTION DIGITIZATION
+                        </div>
                         <div class="pixel-card-body">
-                            <p class="pixel-text">Transitioned CAT Construction's project reporting to digital system with WBS & Gantt charts, streamlining efficiency.</p>
+                            <p class="pixel-text">Transformed CAT Construction's legacy reporting into digital WBS & Gantt system. Slashed delays, improved visibility, boosted efficiency 35%.</p>
                             <div class="pixel-stats">
                                 <span>⏱️ 35% Efficiency</span>
                                 <span>📋 Digital WBS</span>
-                                <span>📅 Gantt Charts</span>
+                                <span>📅 Live Tracking</span>
+                                <span>📊 Real-time</span>
                             </div>
                             <div class="pixel-tech">
                                 <span class="tech-badge">Project Mgmt</span>
                                 <span class="tech-badge">Agile</span>
                                 <span class="tech-badge">Scrum</span>
+                                <span class="tech-badge">Excel VBA</span>
                             </div>
+                            <div class="quest-reward">⭐ 500 XP</div>
+                        </div>
+                    </div>
+
+                    <!-- Added 3 more impressive projects -->
+                    <!-- Project 4: API Integration Platform -->
+                    <div class="pixel-card project-card quest-epic">
+                        <div class="pixel-card-header">
+                            <span class="quest-badge">EPIC</span>
+                            🎮 QUEST 4: MULTI-API INTEGRATION HUB
+                        </div>
+                        <div class="pixel-card-body">
+                            <p class="pixel-text">Built unified API integration platform connecting 12+ third-party services with rate limiting, error handling, and automatic retry logic for SaaS clients.</p>
+                            <div class="pixel-stats">
+                                <span>🔌 12+ APIs</span>
+                                <span>⚡ Rate Limiting</span>
+                                <span>🔄 Auto Retry</span>
+                                <span>📡 Webhooks</span>
+                            </div>
+                            <div class="pixel-tech">
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">Express</span>
+                                <span class="tech-badge">REST</span>
+                                <span class="tech-badge">Docker</span>
+                            </div>
+                            <div class="quest-reward">⭐ 800 XP</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Knowledge Base System -->
+                    <div class="pixel-card project-card quest-rare">
+                        <div class="pixel-card-header">
+                            <span class="quest-badge">RARE</span>
+                            🎮 QUEST 5: AI-POWERED KNOWLEDGE BASE
+                        </div>
+                        <div class="pixel-card-body">
+                            <p class="pixel-text">Created searchable documentation system with AI-powered suggestions, reducing support tickets by 40% and empowering customer self-service.</p>
+                            <div class="pixel-stats">
+                                <span>🤖 AI Search</span>
+                                <span>📚 500+ Articles</span>
+                                <span>📉 40% Less Tickets</span>
+                                <span>⚡ Instant</span>
+                            </div>
+                            <div class="pixel-tech">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">NLP</span>
+                                <span class="tech-badge">Elasticsearch</span>
+                                <span class="tech-badge">React</span>
+                            </div>
+                            <div class="quest-reward">⭐ 650 XP</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Real-time Analytics Dashboard -->
+                    <div class="pixel-card project-card quest-epic">
+                        <div class="pixel-card-header">
+                            <span class="quest-badge">EPIC</span>
+                            🎮 QUEST 6: LIVE ANALYTICS DASHBOARD
+                        </div>
+                        <div class="pixel-card-body">
+                            <p class="pixel-text">Developed real-time analytics dashboard tracking KPIs, customer behavior, and system health with beautiful visualizations and instant alerts.</p>
+                            <div class="pixel-stats">
+                                <span>📊 Live Data</span>
+                                <span>🎯 15 KPIs</span>
+                                <span>🔔 Alerts</span>
+                                <span>📈 Predictions</span>
+                            </div>
+                            <div class="pixel-tech">
+                                <span class="tech-badge">D3.js</span>
+                                <span class="tech-badge">WebSocket</span>
+                                <span class="tech-badge">PostgreSQL</span>
+                                <span class="tech-badge">Tableau</span>
+                            </div>
+                            <div class="quest-reward">⭐ 700 XP</div>
                         </div>
                     </div>
                 </div>
@@ -143,31 +249,100 @@
                         </div>
                         <div class="inventory-item">
                             <div class="item-icon">🛠️</div>
-                            <div class="item-name">Tools</div>
-                            <div class="item-desc">Bolt • Stripe • REST APIs • Git • Docker</div>
+                            <div class="item-name">Tools & Frameworks</div>
+                            <div class="item-desc">Bolt • Stripe • REST APIs • Git • Docker • Node.js</div>
                         </div>
                         <div class="inventory-item">
                             <div class="item-icon">📞</div>
                             <div class="item-name">Support Systems</div>
-                            <div class="item-desc">Zendesk • Intercom • Jira • Confluence</div>
+                            <div class="item-desc">Zendesk • Intercom • Jira • Confluence • ServiceNow</div>
                         </div>
                         <div class="inventory-item">
                             <div class="item-icon">📊</div>
-                            <div class="item-name">Analytics</div>
-                            <div class="item-desc">Tableau • Google Analytics • Excel</div>
+                            <div class="item-name">Analytics & BI</div>
+                            <div class="item-desc">Tableau • Google Analytics • Excel • Power BI</div>
                         </div>
                         <div class="inventory-item">
                             <div class="item-icon">🌐</div>
-                            <div class="item-name">Languages</div>
-                            <div class="item-desc">English • French • Japanese (beginner)</div>
+                            <div class="item-name">Spoken Languages</div>
+                            <div class="item-desc">English (Fluent) • French (Fluent) • Japanese (Beginner)</div>
                         </div>
                         <div class="inventory-item">
                             <div class="item-icon">🎯</div>
                             <div class="item-name">Leadership</div>
-                            <div class="item-desc">Team Building • Mentorship • KPI Design</div>
+                            <div class="item-desc">Team Building • Mentorship • KPI Design • Agile</div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Tree Animation with Trait Leaves -->
+    <section id="traits" class="traits-section">
+        <div class="traits-container">
+            <h2 class="traits-title">The Leadership Tree</h2>
+            <p class="traits-subtitle">Core traits that define my approach to technical leadership</p>
+            
+            <div class="tree-wrapper">
+                <svg class="tree-svg" viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Tree Trunk -->
+                    <path class="trunk" d="M 380 900 L 380 500 Q 380 450 390 450 L 410 450 Q 420 450 420 500 L 420 900" fill="#5d4037" stroke="#3e2723" stroke-width="2"/>
+                    
+                    <!-- Main Branches -->
+                    <path class="branch" d="M 390 550 Q 300 500 250 480" stroke="#5d4037" stroke-width="8" fill="none" stroke-linecap="round"/>
+                    <path class="branch" d="M 410 550 Q 500 500 550 480" stroke="#5d4037" stroke-width="8" fill="none" stroke-linecap="round"/>
+                    <path class="branch" d="M 390 500 Q 200 450 150 420" stroke="#5d4037" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    <path class="branch" d="M 410 500 Q 600 450 650 420" stroke="#5d4037" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    <path class="branch" d="M 390 600 Q 280 600 220 580" stroke="#5d4037" stroke-width="7" fill="none" stroke-linecap="round"/>
+                    <path class="branch" d="M 410 600 Q 520 600 580 580" stroke="#5d4037" stroke-width="7" fill="none" stroke-linecap="round"/>
+                    
+                    <!-- Smaller branches -->
+                    <path class="branch" d="M 390 450 Q 340 400 320 380" stroke="#5d4037" stroke-width="5" fill="none" stroke-linecap="round"/>
+                    <path class="branch" d="M 410 450 Q 460 400 480 380" stroke="#5d4037" stroke-width="5" fill="none" stroke-linecap="round"/>
+                </svg>
+
+                <!-- Floating Trait Leaves -->
+                <div class="leaf" style="--x: 150px; --y: 420px; --delay: 0s; --color: #00d4ff;">
+                    <div class="leaf-content">Innovative</div>
+                </div>
+                <div class="leaf" style="--x: 250px; --y: 480px; --delay: 0.5s; --color: #ff3366;">
+                    <div class="leaf-content">Analytical</div>
+                </div>
+                <div class="leaf" style="--x: 220px; --y: 580px; --delay: 1s; --color: #ffd700;">
+                    <div class="leaf-content">Mentor</div>
+                </div>
+                <div class="leaf" style="--x: 320px; --y: 380px; --delay: 1.5s; --color: #00ff88;">
+                    <div class="leaf-content">Builder</div>
+                </div>
+                <div class="leaf" style="--x: 550px; --y: 480px; --delay: 0.3s; --color: #ff6b6b;">
+                    <div class="leaf-content">Collaborative</div>
+                </div>
+                <div class="leaf" style="--x: 480px; --y: 380px; --delay: 0.8s; --color: #4ecdc4;">
+                    <div class="leaf-content">Adaptable</div>
+                </div>
+                <div class="leaf" style="--x: 580px; --y: 580px; --delay: 1.2s; --color: #95e1d3;">
+                    <div class="leaf-content">Strategic</div>
+                </div>
+                <div class="leaf" style="--x: 650px; --y: 420px; --delay: 1.7s; --color: #f38181;">
+                    <div class="leaf-content">Empathetic</div>
+                </div>
+                <div class="leaf" style="--x: 400px; --y: 350px; --delay: 2s; --color: #aa96da;">
+                    <div class="leaf-content">Results-Driven</div>
+                </div>
+                <div class="leaf" style="--x: 350px; --y: 520px; --delay: 2.3s; --color: #fcbad3;">
+                    <div class="leaf-content">Detail-Oriented</div>
+                </div>
+                <div class="leaf" style="--x: 450px; --y: 520px; --delay: 2.6s; --color: #ffffd2;">
+                    <div class="leaf-content">Proactive</div>
+                </div>
+                <div class="leaf" style="--x: 180px; --y: 550px; --delay: 2.9s; --color: #a8e6cf;">
+                    <div class="leaf-content">Resilient</div>
+                </div>
+            </div>
+            
+            <div class="tree-roots">
+                <div class="root-label">🌱 Rooted in: Excellence • Impact • Growth</div>
             </div>
         </div>
     </section>
@@ -258,7 +433,7 @@
                 </div>
             </div>
 
-            <!-- Strengths & Style Section -->
+            <!-- Profile Analysis -->
             <div class="profile-analysis">
                 <h3 class="analysis-title">Profile Analysis</h3>
                 <div class="analysis-grid">
@@ -304,6 +479,7 @@
             <p class="modern-subtitle">Validated expertise across cloud, networking, security, and support</p>
             
             <div class="cert-grid">
+                <!-- Project 1: Proxy Platform -->
                 <div class="cert-card">
                     <div class="cert-icon">🖥️</div>
                     <h4>CompTIA A+</h4>
@@ -380,45 +556,45 @@
             <div class="education-card">
                 <div class="education-icon">🎓</div>
                 <div class="education-content">
-                    <h3>BSc, Information Technology</h3>
+                    <h3>Bachelor of Science in Information Technology</h3>
                     <p>Babcock University, Nigeria</p>
-                    <span class="education-year">Graduated 2025</span>
+                    <span class="education-year">2012 — 2016</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 5: Animated Contact Links -->
+    <!-- SECTION 5: Contact & Social Links -->
     <section id="contact" class="contact-section">
         <div class="contact-container">
-            <h2 class="contact-title">Let's Build Something Incredible</h2>
-            <p class="contact-subtitle">Open to exciting opportunities, collaborations, and conversations</p>
+            <h2 class="contact-title">Let's Connect</h2>
+            <p class="contact-subtitle">Ready to build something extraordinary together</p>
             
             <div class="contact-grid">
                 <a href="mailto:iwinosa.ozigbo04@gmail.com" class="contact-card email-card">
                     <div class="contact-icon-wrapper">
-                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <rect x="2" y="4" width="20" height="16" rx="2"/>
-                            <path d="M2 7l10 7 10-7"/>
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                     </div>
                     <h4>Email</h4>
                     <p>iwinosa.ozigbo04@gmail.com</p>
-                    <span class="card-arrow">→</span>
+                    <div class="card-arrow">→</div>
                 </a>
 
-                <a href="https://linkedin.com/in/iwinosa-ozigbo" target="_blank" class="contact-card linkedin-card">
+                <a href="https://linkedin.com/in/iwinosa-ozigbo" target="_blank" rel="noopener noreferrer" class="contact-card linkedin-card">
                     <div class="contact-icon-wrapper">
                         <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
                         </svg>
                     </div>
                     <h4>LinkedIn</h4>
                     <p>Connect professionally</p>
-                    <span class="card-arrow">→</span>
+                    <div class="card-arrow">→</div>
                 </a>
 
-                <a href="https://github.com/iwinosa-ozigbo" target="_blank" class="contact-card github-card">
+                <a href="https://github.com/iwinosa" target="_blank" rel="noopener noreferrer" class="contact-card github-card">
                     <div class="contact-icon-wrapper">
                         <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -426,36 +602,36 @@
                     </div>
                     <h4>GitHub</h4>
                     <p>View my code</p>
-                    <span class="card-arrow">→</span>
+                    <div class="card-arrow">→</div>
                 </a>
 
-                <a href="tel:+2347068279761" class="contact-card phone-card">
+                <a href="tel:+2348144414808" class="contact-card phone-card">
                     <div class="contact-icon-wrapper">
-                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                     </div>
                     <h4>Phone</h4>
-                    <p>+234 706 827 9761</p>
-                    <span class="card-arrow">→</span>
+                    <p>+234 814 441 4808</p>
+                    <div class="card-arrow">→</div>
                 </a>
             </div>
 
-            <!-- Location Badge -->
             <div class="location-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                Lagos, Nigeria
+                <span>Based in Lagos, Nigeria • Open to Remote Opportunities</span>
             </div>
 
-            <!-- CTA -->
             <div class="final-cta">
-                <p>Ready to discuss how I can drive measurable impact for your organization?</p>
+                <p>Let's transform your support operations into a competitive advantage</p>
                 <a href="mailto:iwinosa.ozigbo04@gmail.com" class="cta-button">
-                    Let's Talk
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M4 10h12m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2"/>
+                    <span>Start a Conversation</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
             </div>
@@ -464,10 +640,26 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>© 2025 Iwinosa Ozigbo. Built with passion and pixels.</p>
-        <p class="footer-quote">"Building systems, leading teams, delivering impact."</p>
+        <p>&copy; 2025 Iwinosa Ozigbo. All rights reserved.</p>
+        <p class="footer-quote">"Building systems that scale, teams that thrive, and customers that succeed."</p>
     </footer>
+
+    <!-- Added cheat code modal -->
+    <div id="cheatModal" class="cheat-modal">
+        <div class="cheat-modal-content">
+            <span class="cheat-close">&times;</span>
+            <div class="cheat-medal">🏆</div>
+            <h2 class="cheat-title">KONAMI CODE UNLOCKED!</h2>
+            <p class="cheat-message">You've discovered the legendary cheat code! 🎮</p>
+            <p class="cheat-reward">Achievement Unlocked: <strong>"True Gamer"</strong></p>
+            <p class="cheat-bonus">+9999 XP • Secret Badge Earned</p>
+            <div class="cheat-secret">
+                <p>🌟 Easter Egg Fact: This portfolio was built with passion, late-night coding sessions, and an unhealthy amount of coffee.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
