@@ -81,6 +81,299 @@ function animateParticles() {
 animateParticles()
 
 // ===================================
+// MULTILINGUAL GREETING
+// ===================================
+const greetings = [
+  "Good day",
+  "Bonjour", // French
+  "こんにちは", // Japanese
+  "Buenos días", // Spanish
+  "Guten Tag", // German
+  "Buongiorno", // Italian
+  "你好", // Chinese
+  "안녕하세요", // Korean
+  "Olá", // Portuguese
+  "Здравствуйте", // Russian
+]
+
+let greetingIndex = 0
+const greetingElement = document.getElementById("greeting")
+
+function morphGreeting() {
+  greetingElement.style.opacity = "0"
+  greetingElement.style.transform = "translateY(-10px)"
+
+  setTimeout(() => {
+    greetingIndex = (greetingIndex + 1) % greetings.length
+    greetingElement.textContent = greetings[greetingIndex]
+    greetingElement.style.opacity = "1"
+    greetingElement.style.transform = "translateY(0)"
+  }, 500)
+}
+
+setInterval(morphGreeting, 3000)
+
+// ===================================
+// MINIATURE PIXELATED MAP
+// ===================================
+const miniMapCanvas = document.getElementById("miniMap")
+const miniMapCtx = miniMapCanvas.getContext("2d")
+
+miniMapCanvas.width = 400
+miniMapCanvas.height = 400
+
+const pixelSize = 8
+
+// Simplified world map (pixelated continents)
+function drawPixelatedMap() {
+  // Ocean background
+  miniMapCtx.fillStyle = "#0a2463"
+  miniMapCtx.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
+
+  // Continents (simplified pixelated shapes)
+  miniMapCtx.fillStyle = "#1e5128"
+
+  // Africa (highlighted - Lagos, Nigeria)
+  const africaPixels = [
+    [22, 18],
+    [23, 18],
+    [24, 18],
+    [22, 19],
+    [23, 19],
+    [24, 19],
+    [25, 19],
+    [22, 20],
+    [23, 20],
+    [24, 20],
+    [25, 20],
+    [23, 21],
+    [24, 21],
+    [25, 21],
+    [24, 22],
+    [25, 22],
+  ]
+
+  africaPixels.forEach(([x, y]) => {
+    miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+  })
+
+  // Other continents (lighter green)
+  miniMapCtx.fillStyle = "#4e6c50"
+
+  // Europe
+  const europePixels = [
+    [24, 14],
+    [25, 14],
+    [24, 15],
+    [25, 15],
+    [26, 15],
+  ]
+  europePixels.forEach(([x, y]) => {
+    miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+  })
+
+  // Asia
+  const asiaPixels = [
+    [30, 12],
+    [31, 12],
+    [32, 12],
+    [33, 12],
+    [30, 13],
+    [31, 13],
+    [32, 13],
+    [33, 13],
+    [34, 13],
+    [31, 14],
+    [32, 14],
+    [33, 14],
+    [34, 14],
+  ]
+  asiaPixels.forEach(([x, y]) => {
+    miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+  })
+
+  // North America
+  const naPixels = [
+    [10, 10],
+    [11, 10],
+    [12, 10],
+    [10, 11],
+    [11, 11],
+    [12, 11],
+    [13, 11],
+    [11, 12],
+    [12, 12],
+    [13, 12],
+  ]
+  naPixels.forEach(([x, y]) => {
+    miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+  })
+
+  // South America
+  const saPixels = [
+    [14, 20],
+    [15, 20],
+    [14, 21],
+    [15, 21],
+    [15, 22],
+    [15, 23],
+  ]
+  saPixels.forEach(([x, y]) => {
+    miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+  })
+
+  // Australia
+  const ausPixels = [
+    [38, 28],
+    [39, 28],
+    [38, 29],
+    [39, 29],
+  ]
+  ausPixels.forEach(([x, y]) => {
+    miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+  })
+
+  // Pulsing marker for Lagos, Nigeria
+  const markerX = 24 * pixelSize
+  const markerY = 19 * pixelSize
+
+  let pulseSize = 0
+  let pulseDirection = 1
+
+  function animateMarker() {
+    // Redraw map
+    miniMapCtx.fillStyle = "#0a2463"
+    miniMapCtx.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
+
+    // Redraw continents
+    miniMapCtx.fillStyle = "#1e5128"
+    africaPixels.forEach(([x, y]) => {
+      miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+    })
+    miniMapCtx.fillStyle = "#4e6c50"
+    europePixels.forEach(([x, y]) => {
+      miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+    })
+    asiaPixels.forEach(([x, y]) => {
+      miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+    })
+    naPixels.forEach(([x, y]) => {
+      miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+    })
+    saPixels.forEach(([x, y]) => {
+      miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+    })
+    ausPixels.forEach(([x, y]) => {
+      miniMapCtx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+    })
+
+    // Pulsing marker
+    miniMapCtx.fillStyle = "#ff3366"
+    miniMapCtx.beginPath()
+    miniMapCtx.arc(markerX + pixelSize / 2, markerY + pixelSize / 2, 4 + pulseSize, 0, Math.PI * 2)
+    miniMapCtx.fill()
+
+    // Pulse ring
+    miniMapCtx.strokeStyle = `rgba(255, 51, 102, ${1 - pulseSize / 6})`
+    miniMapCtx.lineWidth = 2
+    miniMapCtx.beginPath()
+    miniMapCtx.arc(markerX + pixelSize / 2, markerY + pixelSize / 2, 8 + pulseSize * 2, 0, Math.PI * 2)
+    miniMapCtx.stroke()
+
+    pulseSize += pulseDirection * 0.1
+    if (pulseSize >= 6 || pulseSize <= 0) pulseDirection *= -1
+
+    requestAnimationFrame(animateMarker)
+  }
+
+  animateMarker()
+}
+
+drawPixelatedMap()
+
+// ===================================
+// KONAMI CODE CHEAT CODE
+// ===================================
+const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "KeyB", "KeyA"]
+let konamiIndex = 0
+
+document.addEventListener("keydown", (e) => {
+  const key = e.code
+
+  if (key === konamiCode[konamiIndex]) {
+    konamiIndex++
+    if (konamiIndex === konamiCode.length) {
+      activateCheatCode()
+      konamiIndex = 0
+    }
+  } else {
+    konamiIndex = 0
+  }
+})
+
+function activateCheatCode() {
+  const modal = document.getElementById("cheatModal")
+  modal.style.display = "block"
+
+  // Play celebration animation
+  confetti()
+}
+
+// Close modal
+const closeBtn = document.querySelector(".cheat-close")
+closeBtn.addEventListener("click", () => {
+  document.getElementById("cheatModal").style.display = "none"
+})
+
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("cheatModal")
+  if (e.target === modal) {
+    modal.style.display = "none"
+  }
+})
+
+// Simple confetti effect
+function confetti() {
+  const colors = ["#00d4ff", "#ff3366", "#ffd700", "#00ff88", "#ff6b6b"]
+  const confettiCount = 50
+
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement("div")
+    confetti.style.position = "fixed"
+    confetti.style.width = "10px"
+    confetti.style.height = "10px"
+    confetti.style.background = colors[Math.floor(Math.random() * colors.length)]
+    confetti.style.left = Math.random() * window.innerWidth + "px"
+    confetti.style.top = "-20px"
+    confetti.style.opacity = "1"
+    confetti.style.zIndex = "10001"
+    confetti.style.borderRadius = "50%"
+    confetti.style.pointerEvents = "none"
+
+    document.body.appendChild(confetti)
+
+    const fall = confetti.animate(
+      [
+        {
+          transform: "translateY(0) rotate(0deg)",
+          opacity: 1,
+        },
+        {
+          transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 720}deg)`,
+          opacity: 0,
+        },
+      ],
+      {
+        duration: Math.random() * 2000 + 2000,
+        easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+      },
+    )
+
+    fall.onfinish = () => confetti.remove()
+  }
+}
+
+// ===================================
 // SMOOTH SCROLL
 // ===================================
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -113,7 +406,6 @@ const observer = new IntersectionObserver((entries) => {
   })
 }, observerOptions)
 
-// Observe elements for scroll animations
 document.querySelectorAll(".pixel-card, .cert-card, .timeline-item").forEach((el) => {
   observer.observe(el)
 })
@@ -160,3 +452,5 @@ console.log(
   "font-size: 14px; color: #ff3366;",
 )
 console.log("%cLet's talk: iwinosa.ozigbo04@gmail.com", "font-size: 14px; color: #ffd700;")
+console.log("%c💡 Try the Konami Code: ↑ ↑ ↓ ↓ B A", "font-size: 12px; color: #00ff88;")
+
